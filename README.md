@@ -151,21 +151,20 @@ If readings drop below safe thresholds, the system sends notifications:
 
 Example: `temperature < 26°C` or `humidity < 50%`
 
----
-### 🧩 Node-RED Flow
-![Node-RED Flow](screenshots/node_red_flow.png)
+<h3>🧩 Node-RED Flow</h3>
+<img src="screenshots/node_red_flow.png" width="600"/>
 
-### 📊 Node-RED Live Dashboard
-![Node-RED Dashboard](screenshots/node_red_dashboard.png)
+<h3>📊 Node-RED Live Dashboard</h3>
+<img src="screenshots/node_red_dashboard.png" width="600"/>
 
-### 📈 Grafana Visualization
-![Grafana Dashboard](screenshots/grafana_dashboard.png)
+<h3>📈 Grafana Visualization</h3>
+<img src="screenshots/grafana_dashboard.png" width="600"/>
 
-### 📬 Email Alert Example
-![Email Alert](screenshots/email_alert.png)
+<h3>📬 Email Alert Example</h3>
+<img src="screenshots/email_alert.png" width="600"/>
 
-### 📬 Message Alert Example
-![Message Alert](screenshots/message_alert.jpg)
+<h3>📲 Message Alert Example</h3>
+<img src="screenshots/message_alert.jpg" width="600"/>
 
 ---
 ## 🛠️ Future Enhancements
