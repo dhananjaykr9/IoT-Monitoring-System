@@ -196,3 +196,29 @@ Feel free to fork, star, raise issues — or connect with me on [LinkedIn](https
 
 ⭐ If you found this useful, consider giving the repo a star!
 
+🪪 License
+This project is licensed under the MIT License – see the LICENSE file for details.
+
+yaml
+Copy
+Edit
+
+---
+
+### ✅ `LICENSE` File (MIT License)
+
+Create a file named `LICENSE` in the root of your repo and paste:
+
+```text
+MIT License
+
+Copyright (c) 2025 Dhananjay
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+[... continued license text as per MIT license ...]
