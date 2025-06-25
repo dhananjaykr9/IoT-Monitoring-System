@@ -11,6 +11,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/dhananjaykr9/IoT-Monitoring-System)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dhananjaykr9/IoT-Monitoring-System)
 ![License](https://img.shields.io/github/license/dhananjaykr9/IoT-Monitoring-System)<br>
+
 ![Internship](https://img.shields.io/badge/Developed%20During-Summer%20Internship%202025%20@%20VNIT-blueviolet?style=for-the-badge&logo=graduation-cap)
 
 
