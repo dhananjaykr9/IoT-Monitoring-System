@@ -54,7 +54,7 @@ ESP32 → MQTT Broker → Node-RED → SQL Server → Grafana
 | `node_red_dashboard.png`    | Real-time meter dashboard in Node-RED |
 | `grafana_dashboard.png`     | Grafana time-series visualization |
 | `email_alert.png`           | Sample alert email screenshot |
-| `email_alert.png`           | Sample alert email screenshot |
+| `message_alert.jpg`           | Sample alert message screenshot |
 
 > Screenshots can be found inside the `screenshots/` folder.
 
@@ -150,7 +150,7 @@ Example: `temperature < 26°C` or `humidity < 50%`
 ![Email Alert](screenshots/email_alert.png)
 
 ### 📬 Message Alert Example
-![Message Alert](screenshots/message_alert.png)
+![Message Alert](screenshots/message_alert.jpg)
 
 ---
 ## 🛠️ Future Enhancements
