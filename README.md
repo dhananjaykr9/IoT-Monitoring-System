@@ -151,6 +151,8 @@ If readings drop below safe thresholds, the system sends notifications:
 
 Example: `temperature < 26°C` or `humidity < 50%`
 
+---
+
 <h3>🧩 Node-RED Flow</h3>
 <img src="screenshots/node_red_flow.png" width="600"/>
 
