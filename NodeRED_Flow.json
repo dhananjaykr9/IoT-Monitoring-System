@@ -1,0 +1,407 @@
+[
+    {
+        "id": "dfef48ee40756e62",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "35b659e432f821bf",
+        "type": "mqtt in",
+        "z": "dfef48ee40756e62",
+        "name": "",
+        "topic": "Sensor_data",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "767eabd5cfc087fa",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "c3e868b51f545ea6",
+                "c1430a1eb76e1181",
+                "0d41486708f8d1cf",
+                "5b9137484fb92c4d",
+                "d28c4433b99d8d41",
+                "f9268a320f401a8b",
+                "e0a43f74f94de21f"
+            ]
+        ]
+    },
+    {
+        "id": "c3e868b51f545ea6",
+        "type": "function",
+        "z": "dfef48ee40756e62",
+        "name": "Temp",
+        "func": "// Ensure payload is an object\nlet data = msg.payload;\n\n// If it's a string, parse it\nif (typeof data === 'string') {\n    data = JSON.parse(data);\n}\n\nmsg.payload = data.temp;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "3bc129b4b3da2fcb"
+            ]
+        ]
+    },
+    {
+        "id": "c1430a1eb76e1181",
+        "type": "function",
+        "z": "dfef48ee40756e62",
+        "name": "Humid",
+        "func": "// Ensure payload is an object\nlet data = msg.payload;\n\n// If it's a string, parse it\nif (typeof data === 'string') {\n    data = JSON.parse(data);\n}\n\nmsg.payload = data.humid;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "8267e0d4fb43bd31"
+            ]
+        ]
+    },
+    {
+        "id": "3bc129b4b3da2fcb",
+        "type": "ui_gauge",
+        "z": "dfef48ee40756e62",
+        "name": "",
+        "group": "89129d5567c004ef",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 570,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "8267e0d4fb43bd31",
+        "type": "ui_gauge",
+        "z": "dfef48ee40756e62",
+        "name": "",
+        "group": "4f5e1bd4aa0de965",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 560,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5b9137484fb92c4d",
+        "type": "ui_text",
+        "z": "dfef48ee40756e62",
+        "group": "0372d4ef544b7980",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Time",
+        "format": "{{msg.payload.time}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "Times New Roman,Times,serif",
+        "fontSize": "16",
+        "color": "#050505",
+        "x": 310,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d28c4433b99d8d41",
+        "type": "ui_text",
+        "z": "dfef48ee40756e62",
+        "group": "0372d4ef544b7980",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Date",
+        "format": "{{msg.payload.date}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "Times New Roman,Times,serif",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 310,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "bdab9942f716bd9e",
+        "type": "mysql",
+        "z": "dfef48ee40756e62",
+        "mydb": "027dcfc1ca350052",
+        "name": "MYSQL",
+        "x": 560,
+        "y": 60,
+        "wires": [
+            [
+                "572b5b0cb40fcd74"
+            ]
+        ]
+    },
+    {
+        "id": "0d41486708f8d1cf",
+        "type": "function",
+        "z": "dfef48ee40756e62",
+        "name": "Function MYSQL",
+        "func": "let temp = parseFloat(msg.payload.temp);\nlet humid = parseFloat(msg.payload.humid);\nlet date = msg.payload.date;\nlet time = msg.payload.time;\n\nmsg.topic = `INSERT INTO SensorReadings (temp, humid, date, time)\n             VALUES (${temp}, ${humid}, '${date}', '${time}')`;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "bdab9942f716bd9e"
+            ]
+        ]
+    },
+    {
+        "id": "572b5b0cb40fcd74",
+        "type": "debug",
+        "z": "dfef48ee40756e62",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4233fe3b898f2f4e",
+        "type": "http request",
+        "z": "dfef48ee40756e62",
+        "name": "Send SMS via Twilio",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.twilio.com/2010-04-01/Accounts/REDACTED/Messages.json",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 580,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e0a43f74f94de21f",
+        "type": "function",
+        "z": "dfef48ee40756e62",
+        "name": "SMS",
+        "func": "msg.headers = {\n    \"Content-Type\": \"application/x-www-form-urlencoded\"\n};\n\n\nif (msg.payload.temp > 40) {\n    msg.payload = {\n        To: \"+919595167618\",\n        From: \"+16183684537\",\n        Body: `🔥 Alert! High Temperature Detected: ${msg.payload.temp}°C at ${msg.payload.time}`\n    };\n    return msg;\n}\nif (msg.payload.humid > 60) {\n    msg.payload = {\n        To: \"+919595167618\",\n        From: \"+16183684537\",\n        Body: `🔥 Alert! High Humidity Detected: ${msg.payload.humid}°C at ${msg.payload.time}`\n    };\n    return msg;\n}\nreturn null;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 440,
+        "wires": [
+            [
+                "4233fe3b898f2f4e"
+            ]
+        ]
+    },
+    {
+        "id": "528944a41715203f",
+        "type": "e-mail",
+        "z": "dfef48ee40756e62",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "dkharkar00@gmail.com",
+        "dname": "Email",
+        "x": 530,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f9268a320f401a8b",
+        "type": "function",
+        "z": "dfef48ee40756e62",
+        "name": "GMAIL",
+        "func": "let temp = parseFloat(msg.payload.temp);\nlet humid = parseFloat(msg.payload.humid);\n\nif (temp > 99) {\n    msg.payload = `🔥 Alert! High Temperature Detected: ${temp}°C`;\n    return msg;\n}\nif (humid < 30) {\n    msg.payload = `💧 Alert! Low Humidity Detected: ${humid}%`;\n    return msg;\n}\nmsg.to = \"dkharkar00@gmail.com\";\nmsg.topic = \"🚨 Sensor Alert!\";\nmsg.payload = \"Warning: High temperature and humidity detected!\";\nreturn msg;\n\nreturn null; // Don't send alert if conditions not met\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "528944a41715203f"
+            ]
+        ]
+    },
+    {
+        "id": "496b2b8dfd8fbc68",
+        "type": "ui_spacer",
+        "z": "dfef48ee40756e62",
+        "name": "spacer",
+        "group": "0372d4ef544b7980",
+        "order": 1,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "ad05991957ce87ed",
+        "type": "ui_spacer",
+        "z": "dfef48ee40756e62",
+        "name": "spacer",
+        "group": "0372d4ef544b7980",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "767eabd5cfc087fa",
+        "type": "mqtt-broker",
+        "name": "MQTT",
+        "broker": "10.3.14.168",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "89129d5567c004ef",
+        "type": "ui_group",
+        "name": "Live Temp",
+        "tab": "9acf419b05ae5de2",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4f5e1bd4aa0de965",
+        "type": "ui_group",
+        "name": "Live Humidity",
+        "tab": "9acf419b05ae5de2",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0372d4ef544b7980",
+        "type": "ui_group",
+        "name": "Date & Time",
+        "tab": "9acf419b05ae5de2",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "027dcfc1ca350052",
+        "type": "MySQLdatabase",
+        "name": "MySQL",
+        "host": "localhost",
+        "port": "3306",
+        "db": "SensorDB",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "9acf419b05ae5de2",
+        "type": "ui_tab",
+        "name": "Sensor Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
