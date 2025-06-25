@@ -1,8 +1,6 @@
 
 # 🚀 Real-Time IoT Monitoring System using ESP32, MQTT, Node-RED, SQL & Grafana 🌡️📊
-![GitHub last commit](https://img.shields.io/github/last-commit/dhananjaykr9/IoT-Monitoring-System)
-![GitHub repo size](https://img.shields.io/github/repo-size/dhananjaykr9/IoT-Monitoring-System)
-![License](https://img.shields.io/github/license/dhananjaykr9/IoT-Monitoring-System)
+
 ![GitHub stars](https://img.shields.io/github/stars/dhananjaykr9/IoT-Monitoring-System?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/dhananjaykr9/IoT-Monitoring-System?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/dhananjaykr9/IoT-Monitoring-System?style=social)
