@@ -54,6 +54,7 @@ ESP32 → MQTT Broker → Node-RED → SQL Server → Grafana
 | `node_red_dashboard.png`    | Real-time meter dashboard in Node-RED |
 | `grafana_dashboard.png`     | Grafana time-series visualization |
 | `email_alert.png`           | Sample alert email screenshot |
+| `email_alert.png`           | Sample alert email screenshot |
 
 > Screenshots can be found inside the `screenshots/` folder.
 
@@ -136,7 +137,19 @@ If readings drop below safe thresholds, the system sends notifications:
 Example: `temperature < 26°C` or `humidity < 50%`
 
 ---
+### 🧩 Node-RED Flow
+![Node-RED Flow](screenshots/node_red_flow.png)
 
+### 📊 Node-RED Live Dashboard
+![Node-RED Dashboard](screenshots/node_red_dashboard.png)
+
+### 📈 Grafana Visualization
+![Grafana Dashboard](screenshots/grafana_dashboard.png)
+
+### 📬 Email Alert Example
+![Email Alert](screenshots/email_alert.png)
+
+---
 ## 🛠️ Future Enhancements
 
 * Replace simulated values with **DHT11/DHT22** sensor
