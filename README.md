@@ -149,6 +149,9 @@ Example: `temperature < 26°C` or `humidity < 50%`
 ### 📬 Email Alert Example
 ![Email Alert](screenshots/email_alert.png)
 
+### 📬 Message Alert Example
+![Message Alert](screenshots/message_alert.png)
+
 ---
 ## 🛠️ Future Enhancements
 
