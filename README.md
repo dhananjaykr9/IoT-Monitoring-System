@@ -52,14 +52,12 @@ ESP32 → MQTT Broker → Node-RED → SQL Server → Grafana
 
 ## 🔍 Key Highlights
 
-- ✅ Real-time upload of simulated sensor data every 10 seconds  
-- ✅ Firebase Email/Password secured data path  
-- ✅ Professional Plotly charts: Line, Bar, Area  
-- ✅ Gauge visualizations for each sensor  
-- ✅ Live Weather API from farm GPS coordinates  
-- ✅ Sidebar filters, alert thresholds, multi-page navigation  
-- ✅ Downloadable logs in CSV format  
-- ✅ Fully modular and customizable codebase  
+✅ Simulated temperature & humidity values (easily swappable with DHT11/DHT22)  
+✅ End-to-end real-time data flow: ESP32 → MQTT → Node-RED → SQL Server  
+✅ Node-RED Dashboard with **live meter gauges**  
+✅ Grafana Dashboard with **trend analysis and visual thresholds**  
+✅ Alert system with **real-time Email & SMS notifications**  
+✅ Modular, scalable, and cloud-ready pipeline  
 
 
 ---
